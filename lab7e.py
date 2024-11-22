@@ -31,13 +31,13 @@ class Time:
         total_seconds = self.time_to_sec() + other_time.time_to_sec()
         return sec_to_time(total_seconds)
 
-    def valid_time(self):
-        """Check if the Time object attributes are valid."""
-        if self.hour < 0 or self.minute < 0 or self.second < 0:
-            return False
-        if self.hour >= 24 or self.minute >= 60 or self.second >= 60:
-            return False
-        return True
+    def __str__(self):
+        """Return a string representation for the Time object."""
+        return f'{self.hour:02}:{self.minute:02}:{self.second:02}'
+
+    def __repr__(self):
+        """Return a debug string representation for the Time object."""
+        return f'{self.hour:02}.{self.minute:02}.{self.second:02}'
 
 
 def sec_to_time(seconds):
